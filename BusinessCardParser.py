@@ -13,7 +13,7 @@ def inputData():
         counter +=1
         if line == '':
             finished = True
-    #droping the last item from the list as it is just a empty string       
+    #dropping the last item from the list as it is just an empty string       
     text = text[:-1]
     return text
 
@@ -25,13 +25,13 @@ def parse_person(line):
             if chunk.label() == 'PERSON':
                 names.append(chunk[0][0])
     '''
-    The above code works great for English names.  However it struggled to identify the non-anglo surname 'Haung'.
-    Therefore I added this code to grab the second word after an NLTK identified person.  
-    To solve the non-anglo problem effecently you would want to retrain a word net underlying NLTK to include 
-    a more comprehensive list of global names. 
+    The above code works great for English names.  However, it struggled to identify the non-anglo surname 
+    'Haung'. Therefore I added this code to grab the second word after an NLTK identified person.  
+    To solve the non-anglo problem efficiently you would want to retrain a word net underlying NLTK 
+    to include a more comprehensive list of global names. 
     
     A potential bug in this code is that it would extract a company such as "Kellys Carpets" as a name.
-    Addationally,  it does not account for potential middle names.  
+    Additionally,  it does not account for potential middle names.  
     '''
     if len(names)==1:
         names.append(line.split(' ')[i])
